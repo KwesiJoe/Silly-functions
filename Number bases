@@ -1,0 +1,25 @@
+def ch_from_base10(number,base):
+    answer = ''
+    numbers = []
+    while True:
+        remainder = number % base
+        number = number // base
+        numbers.insert(0, remainder)
+        if number < base:
+            numbers.insert(0, num)
+            break
+    return f'{answer.join([str(i) for i in numbers])} base {base}'  
+
+def ch_to_base10(number, base):
+    elements = list(str(number))
+    length = len(elements)
+    answer = [int(elements[i])*(base ** (length-1-i)) for i in range(length)]
+    return sum(answer)
+
+def ch_number_base(number, old_base, new_base):
+    if new_base == 10:
+        return ch_to_base10(number, old_base)
+    elif old_base == 10:
+        return ch_from_base10(number,new_base)
+    else:
+        return ch_from_base10(ch_to_base10(number, old_base),new_base)

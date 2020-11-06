@@ -6,7 +6,7 @@ def ch_from_base10(number,base):
         number = number // base
         numbers.insert(0, remainder)
         if number < base:
-            numbers.insert(0, num)
+            numbers.insert(0, number)
             break
     return f'{answer.join([str(i) for i in numbers])} base {base}'  
 
